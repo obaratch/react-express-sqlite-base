@@ -1,0 +1,6 @@
+.DS_Store
+.vscode
+.node-version
+node_modules
+log
+config/local.*
