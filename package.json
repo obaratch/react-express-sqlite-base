@@ -1,7 +1,7 @@
 {
-  "name": "micro-platform",
+  "name": "react-express-sqlite-base",
   "version": "0.0.0",
-  "description": "",
+  "description": "a micro react-express-sqlite app scafforld",
   "engines": {
     "node": ">=15"
   },
