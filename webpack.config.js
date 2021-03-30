@@ -1,5 +1,7 @@
+const webpack = require("webpack");
 const nodepath = require("path");
 const resolvePath = (path) => nodepath.resolve(__dirname, path);
+const { NODE_ENV = "" } = process.env;
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -7,7 +9,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BASE_PATH = "./app-client";
 
 module.exports = {
-  mode: "production",
+  mode: NODE_ENV.toLowerCase().startsWith("dev") ? "development" : "production",
 
   watchOptions: {
     ignored: ["node_modules", "app-server", "stories", "test", "dist"],
@@ -48,5 +50,9 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({ filename: "./style/style.css" }),
     new HtmlWebpackPlugin({ template: "./index.html" }),
+    new webpack.DefinePlugin({
+      __$APP_VER$__: `"${require("./package.json").version}"`,
+      __$BUILD_TIME$__: Date.now(),
+    }),
   ],
 };
