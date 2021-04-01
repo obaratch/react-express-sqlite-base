@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  roouteplus:
+    image: obalab/roouteplus-proto
+    build: .
+    container_name: roouteplus
+    environment:
+      - NODE_ENV=${NODE_ENV}
+    ports:
+      - 80:8080
+      - 3000:3000
+    volumes:
+      - ./config:/home/node/config
+      - ./log:/home/node/log

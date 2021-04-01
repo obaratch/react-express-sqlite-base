@@ -8,10 +8,12 @@
   "main": "main.js",
   "scripts": {
     "start-dev": "run-p serve-dev watch",
-    "serve-dev": "cross-env NODE_ENV=dev nodemon app-server/src/main.js | pino-pretty -c -t SYS:'yyyy-mm-dd HH:MM:ss.l' -i hostname",
+    "start-api-dev": "cross-env NODE_ENV=dev nodemon app-server/src/main.js | pino-pretty -c -t SYS:'yyyy-mm-dd HH:MM:ss.l' -i hostname",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack serve --content-base app-client/dist",
-    "build": "webpack"
+    "build": "webpack",
+    "start-api": "nodemon app-server/src/main.js",
+    "start": "run-p start-api watch"
   },
   "author": "Obalab",
   "license": "ISC",
