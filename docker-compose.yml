@@ -2,9 +2,9 @@ version: "3"
 
 services:
   roouteplus:
-    image: obalab/roouteplus-proto
+    image: obaratch/react-express-sqlite-base
     build: .
-    container_name: roouteplus
+    container_name: webapp
     environment:
       - NODE_ENV=${NODE_ENV}
     ports:
