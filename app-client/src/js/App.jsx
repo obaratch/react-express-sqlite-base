@@ -5,7 +5,7 @@ import { BUILD_CONF } from "./Conf";
 console.log({ BUILD_CONF });
 
 const axios = Axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: `//${location.hostname}:3000`,
 });
 
 export default class App extends React.Component {

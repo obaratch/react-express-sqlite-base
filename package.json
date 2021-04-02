@@ -10,10 +10,11 @@
     "start-dev": "run-p serve-dev watch",
     "start-api-dev": "cross-env NODE_ENV=dev nodemon app-server/src/main.js | pino-pretty -c -t SYS:'yyyy-mm-dd HH:MM:ss.l' -i hostname",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack serve --content-base app-client/dist",
+    "watch": "webpack serve --content-base app-client/dist --host 0.0.0.0",
     "build": "webpack",
     "start-api": "nodemon app-server/src/main.js",
-    "start": "run-p start-api watch"
+    "start-web": "pushstate-server -d app-client/dist -p 8080",
+    "start": "run-p start-api start-web"
   },
   "author": "Obalab",
   "license": "ISC",
@@ -51,6 +52,7 @@
     "lodash": "^4.17.21",
     "npm-run-all": "^4.1.5",
     "pino": "^6.11.2",
+    "pushstate-server": "^3.1.0",
     "sequelize": "^6.6.2",
     "sqlite3": "^5.0.2",
     "statman-stopwatch": "^2.12.0"
