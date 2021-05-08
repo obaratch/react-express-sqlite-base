@@ -6,3 +6,5 @@ log
 config/local.*
 app-client/dist/*
 sqlite/
+
+!.gitkeep
